@@ -115,7 +115,7 @@ def main(cities,factory):
             count = 0
             #checking if curr_city is closer to this factory than previous factory as story in city dictionary as FACT key
             for key in curr_city[FACT]:
-                curr_city[FACT] = [key[0],curr_city[CITY]]
+                curr_city[FACT] = [key,(name,dist(f,curr_city))]
                 used_Factory_List.append(name)
                 break
                 
@@ -123,3 +123,4 @@ cities = readcsv('FINALDATA.xlsx',1)
 factories = readcsv('FINALDATA.xlsx',0)
 main(cities,factories)
 print({city[CITY]:city[FACT] for city in cities})
+getunusedFactory(factories)
